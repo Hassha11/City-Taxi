@@ -145,9 +145,9 @@ switch ($action) {
 /*use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'path/to/PHPMailer/src/Exception.php';
-require 'path/to/PHPMailer/src/PHPMailer.php';
-require 'path/to/PHPMailer/src/SMTP.php';
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 class Registration {
     private $conn;
@@ -158,44 +158,63 @@ class Registration {
 
     public function register_user($username, $email, $password) {
         $password_hashed = md5($password);
-        // Insert user into the database
+
         $stmt = $this->conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $username, $email, $password_hashed);
         $result = $stmt->execute();
 
         if ($result) {
-            // Send email with username and password
-            $this->send_registration_email($username, $email, $password);
-            return true;
+            
+            if($this->send_registration_email($username, $email, $password)) {
+                return true;
+            } else {
+                
+                return false;
+            }
         } else {
+           
             return false;
         }
     }
 
     public function send_registration_email($username, $email, $password) {
-        $mail = new PHPMailer(true);
+        $mail = new PHPMailer(true); // Enable exceptions for error handling
+        try {
             //Server settings
             $mail->isSMTP();                                            
-            $mail->Host       = 'smtp.example.com';                     
+            $mail->Host       = 'smtp.gmail.com'; // SMTP server host (replace with your SMTP server)                  
             $mail->SMTPAuth   = true;                                   
-            $mail->Username   = 'your_email@example.com';                
-            $mail->Password   = 'your_password';                        
-            $mail->SMTPSecure = 'tls';         
+            $mail->Username   = 'hasharalanka1111@gmail.com';  // SMTP username (replace with your email)  
+            $mail->Password   = 'aaa111222\\';        // SMTP password (replace with your password)              
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // Use STARTTLS encryption  
             $mail->Port       = 587;                                    
 
             //Recipients
-            $mail->setFrom('CMS@gmail.com', 'CMS');
-            $mail->addAddress($email, $username);     
+            $mail->setFrom('hasharalanka1111@gmail.com', 'CMS');  // Sender email and name
+            $mail->addAddress($email, $username);    // Add recipient
 
             // Content
             $mail->isHTML(true);                                  
             $mail->Subject = 'Registration Successful';
-            $mail->Body    = "<p>Dear $username,</p><p>Your registration is successful. Here are your login details:</p>
-                              <p>Username: $username<br>Password: $password</p>";
-            $mail->AltBody = "Dear $username, Your registration is successful. Username: $username, Password: $password";
+            $mail->Body    = "<p>Dear $username,</p>
+                              <p>Your registration is successful. Here are your login details:</p>
+                              <p><strong>Username:</strong> $username<br>
+                              <strong>Password:</strong> $password</p>
+                              <p>Please keep this information secure.</p>";
+            $mail->AltBody = "Dear $username, Your registration is successful. Username: $username, Password: $password. Please keep this information secure.";
 
-            $mail->send();
+            $mail->send();  // Send the email
             return true;
+        } catch (Exception $e) {
+            // Handle PHPMailer errors
+            error_log("Mailer Error: " . $mail->ErrorInfo);  // Log the error
+            return false;  // Return false if the email sending fails
+        }
     }
 }*/
+
+
+
+
+
 
