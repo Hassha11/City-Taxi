@@ -50,9 +50,9 @@
 							</td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success rounded-pill px-3">Active</span>
+                                    <span class="badge badge-success rounded-pill px-3">Available</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger rounded-pill px-3">Inactive</span>
+                                    <span class="badge badge-danger rounded-pill px-3">Busy</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">

@@ -87,9 +87,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                         <div class="pl-4">
                             <?php if(isset($status)): ?>
                                 <?php if($status == 1): ?>
-                                    <span class="badge badge-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success px-3 rounded-pill">Available</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger px-3 rounded-pill">Busy</span>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </div>

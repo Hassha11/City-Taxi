@@ -44,9 +44,9 @@
 							<td><p class="m-0 truncate-1"><?php echo $row['description'] ?></p></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success px-3 rounded-pill">Available</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger px-3 rounded-pill">Busy</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
