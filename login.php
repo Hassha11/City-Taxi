@@ -36,7 +36,7 @@
       <a href="./" class="h1 text-decoration-none"><b>Login</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Sign In</p>
 
       <form id="clogin-frm" action="" method="post">
         <div class="input-group mb-3">
@@ -57,7 +57,7 @@
         </div>
         <div class="row align-items-center">
           <div class="col-8">
-            <a href="<?php echo base_url ?>">Back to Site</a>
+            <a href="<?php echo base_url ?>">Back</a>
           </div>
           <!-- /.col -->
           <div class="col-4">

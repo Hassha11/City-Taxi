@@ -56,13 +56,14 @@
   })
 </script>
 <footer class="main-footer text-sm">
-        <strong>Copyright © <?php echo date('Y') ?>. 
+        <strong>Copyright © <?php echo date('Y') ?>.
+        <strong>Copyright © <?php 2024 ?>. 
         <!-- <a href=""></a> -->
         </strong>
         All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
+        <!--<div class="float-right d-none d-sm-inline-block">
           <b><?php echo $_settings->info('short_name') ?> (by: <a href="https://1sourcecodr.blogspot.com/" target="blank">oretnom23</a> )</b> v1.0
-        </div>
+        </div>-->
       </footer>
     </div>
     <!-- ./wrapper -->
